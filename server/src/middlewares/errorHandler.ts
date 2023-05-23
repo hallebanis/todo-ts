@@ -1,8 +1,13 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import HttpErrorModel from '../models/HttpErrorModel';
 
 // Error handler middleware function
-function errorHandler(err: Error, _: Request, res: Response) {
+function errorHandler(
+  err: Error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   console.error(err); // Log the error for debugging purposes
 
   // Check if the error is an instance of a known error class
@@ -13,6 +18,8 @@ function errorHandler(err: Error, _: Request, res: Response) {
 
   // Handle other types of errors
   return res.status(500).json({ error: 'Internal Server Error' });
+
+  next(); // Call the next middleware if there is no error
 }
 
-module.exports = errorHandler;
+export default errorHandler;

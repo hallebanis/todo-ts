@@ -25,16 +25,7 @@ const logger: Logger = winston.createLogger({
       return `${color}${timestamp} ${level.toUpperCase()}: ${message}\x1b[0m`; // Reset color after the message
     })
   ),
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' }),
-  ],
+  transports: [new winston.transports.Console()],
 });
-
-// Example usage
-logger.info('This is an informational message.');
-logger.warn('This is a warning message.');
-logger.error('This is an error message.');
 
 export default logger;
