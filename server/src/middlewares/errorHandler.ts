@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import HttpErrorModel from '../models/HttpErrorModel';
+import { Request, Response, NextFunction } from "express";
+import HttpErrorModel from "../models/HttpErrorModel";
 
 // Error handler middleware function
 function errorHandler(
@@ -17,7 +17,7 @@ function errorHandler(
   }
 
   // Handle other types of errors
-  return res.status(500).json({ error: 'Internal Server Error' });
+  return res.status(500).json({ error: "Internal Server Error" });
 
   next(); // Call the next middleware if there is no error
 }

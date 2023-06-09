@@ -1,4 +1,4 @@
-import HttpError from '../interfaces/HttpError';
+import HttpError from "../interfaces/HttpError";
 
 class HttpErrorModel implements HttpError {
   name: string;

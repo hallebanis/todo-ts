@@ -1,4 +1,4 @@
-import { User } from '../interfaces/User';
+import { User } from "../interfaces/User";
 class UserModel implements User {
   readonly id: string;
   email: string;
